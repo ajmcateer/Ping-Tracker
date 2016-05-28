@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ping_Tracker"
         mc:Ignorable="d"
         DataContext="MainViewModel"
-        Title="Options" Height="126.484" Width="264.407">
+        Title="Options" Height="158.484" Width="264.407">
     
     
     <Grid>
@@ -25,7 +25,8 @@
         </ComboBox>
         <Label x:Name="label" Content="Ping Interval" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="12" Width="96" Height="25" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Results to Save" HorizontalAlignment="Left" Margin="10,37,0,0" FontSize="12" Width="96" Height="25" VerticalAlignment="Top"/>
-        <Button x:Name="button_Copy" Content="Cancel" HorizontalAlignment="Left" Margin="171,0,0,5" Width="75" Height="20" VerticalAlignment="Bottom" Click="button_Copy_Click"/>
+        <Button x:Name="button_Copy" Content="Cancel" HorizontalAlignment="Left" Margin="171,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="button_Copy_Click"/>
+        <Label x:Name="label1" Content="Settings will be applied next time it is run" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Height="29" Width="236"/>
 
     </Grid>
 </Window>
