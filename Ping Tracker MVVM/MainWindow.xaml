@@ -41,7 +41,7 @@
         <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
             <MenuItem Header="File" Width="29" FontSize="12">
                 <MenuItem Header="Options" FontSize="12" Click="MenuItem_Click"/>
-                <MenuItem Header="Exit" FontSize="12"/>
+                <MenuItem Header="Exit" FontSize="12" Click="MenuItem_Click_1"/>
             </MenuItem>
         </Menu>
         <StatusBar x:Name="SBmain" Background="#FF41B1E1" Height="22" VerticalAlignment="Bottom">
