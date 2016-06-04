@@ -290,14 +290,7 @@ namespace Ping_Tracker.ViewModel
         /// <returns>average of the list of longs converted to a string</returns>
         private string GetAverage(List<long> Pings)
         {
-            long i = 0;
-
-            foreach(long l in Pings)
-            {
-                i += l;
-            }
-
-            return (i = i / Pings.Count).ToString(); 
+            return Pings.Average().ToString();
         }
 
         /// <summary>
