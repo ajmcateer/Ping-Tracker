@@ -81,5 +81,17 @@ namespace Ping_Tracker
             Options opt = new Options(_viewModel);
             opt.ShowDialog();
         }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            btnStop.IsEnabled = true;
+            btnStart.IsEnabled = false;
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            btnStart.IsEnabled = true;
+            btnStop.IsEnabled = false;
+        }
     }
 }

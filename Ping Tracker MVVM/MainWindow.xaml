@@ -23,8 +23,8 @@
 
     <Grid x:Name="LayoutRoot">
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="19" Margin="10,27,0,0" TextWrapping="Wrap" Text="{Binding URL}" VerticalAlignment="Top" Width="272"/>
-        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="207,50,0,0" Width="35" Command="{Binding StartCommand}" Height="19" VerticalAlignment="Top"/>
-        <Button x:Name="button_Copy" Content="Stop" HorizontalAlignment="Left" Margin="247,50,0,0" VerticalAlignment="Top" Width="35" Command="{Binding StopCommand}" Height="19"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="207,50,0,0" Width="35" Command="{Binding StartCommand}" Height="19" VerticalAlignment="Top" Click="btnStart_Click"/>
+        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="247,50,0,0" VerticalAlignment="Top" Width="35" Command="{Binding StopCommand}" Height="19"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="66,50,0,0" TextWrapping="Wrap" Text="{Binding Status}" VerticalAlignment="Top" Height="19" FontSize="12" Width="40" />
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="186,50,0,0" TextWrapping="Wrap" Text="{Binding Average}" VerticalAlignment="Top" Height="19" FontSize="12" Width="16" />
         <TextBlock x:Name="textBloc" HorizontalAlignment="Left" Margin="111,50,0,0" TextWrapping="Wrap" Text="Average Ping" VerticalAlignment="Top" Height="19" Width="70" FontSize="12" />
