@@ -29,7 +29,11 @@ namespace Ping_Tracker
             Messenger.Default.Register<string>(this, "Toast", ShowToast);
         }
 
-        private void ShowToast(string obj)
+        /// <summary>
+        /// uses the peanutbutter.dll file to display toast notifications
+        /// </summary>
+        /// <param name="Error"></param>
+        private void ShowToast(string Error)
         {
             var time = DateTime.Now;
             string title = "Title";
@@ -41,14 +45,14 @@ namespace Ping_Tracker
             if (span.Minutes < 2)
                 return;
 
-            if (obj == "HighPing")
+            if (Error == "HighPing")
             {
                 title = "High Ping";
                 message = "Ping is over 500";
                 type = ToastTypes.Warning;
                 lastUsedTime = DateTime.Now;
             }
-            else if(obj == "Failure")
+            else if(Error == "Failure")
             {
                 title = "Ping Timeout";
                 message = "Ping Timed out";
@@ -63,9 +67,8 @@ namespace Ping_Tracker
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(String.Concat("An error occured trying to show an alert, The alert was: ", message), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

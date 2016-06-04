@@ -198,11 +198,15 @@ namespace Ping_Tracker.ViewModel
 
             Task.Run(async () =>
             {
-                ExtIP = await MakeWebRequest();
+                ExtIP = await GetExtIP();
             });
         }
 
-        public async Task<string> MakeWebRequest()
+        /// <summary>
+        /// Gets external IP at startup
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> GetExtIP()
         {
             string responseString = "";
 
@@ -230,6 +234,10 @@ namespace Ping_Tracker.ViewModel
             thread.Start();
         }
 
+        /// <summary>
+        /// New thread used to ping the selected server
+        /// and calculate statistics
+        /// </summary>
         private void ThreadAction()
         {
             Console.WriteLine("Thread Started");
@@ -275,6 +283,11 @@ namespace Ping_Tracker.ViewModel
             Console.WriteLine("Thread Stopped");
         }
 
+        /// <summary>
+        /// averages a list of longs
+        /// </summary>
+        /// <param name="Pings"></param>
+        /// <returns>average of the list of longs converted to a string</returns>
         private string GetAverage(List<long> Pings)
         {
             long i = 0;
@@ -287,6 +300,9 @@ namespace Ping_Tracker.ViewModel
             return (i = i / Pings.Count).ToString(); 
         }
 
+        /// <summary>
+        /// stops the thread
+        /// </summary>
         private void Stop()
         {
             threadStop = true;
