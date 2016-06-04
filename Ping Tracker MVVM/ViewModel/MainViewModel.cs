@@ -47,13 +47,13 @@ namespace Ping_Tracker.ViewModel
         {
             get
             {
+                if (_pingQueue == null)
+                    _pingQueue = new CustomQueue(PingsToSave);
+
                 return _pingQueue;
             }
             set
             {
-                if (_pingQueue == null)
-                    _pingQueue = new CustomQueue(PingsToSave);
-
                 _pingQueue = value;
                 RaisePropertyChanged("PingQueue");
             }
@@ -115,13 +115,13 @@ namespace Ping_Tracker.ViewModel
         {
             get
             {
+                if (_averagePings == null)
+                    _averagePings = new List<long>();
+
                 return _averagePings;
             }
             set
             {
-                if (_averagePings == null)
-                    _averagePings = new List<long>();
-
                 _averagePings = value;
                 RaisePropertyChanged("AveragePings");
             }
