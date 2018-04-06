@@ -14,6 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Net.Http;
+using LiveCharts.Wpf;
 
 namespace Ping_Tracker.ViewModel
 {
@@ -187,7 +188,7 @@ namespace Ping_Tracker.ViewModel
             {
                 Title = "Ping Times",
                 Values = new ChartValues<double> { 0 },
-                PointRadius = 0
+                PointGeometry = DefaultGeometries.None
             };
 
             //add our series to our SeriesCollection

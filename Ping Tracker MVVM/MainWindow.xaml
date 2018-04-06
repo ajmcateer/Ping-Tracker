@@ -4,12 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d ignore"
-        Height="289"
-        Width="363"
+        Height="405.956"
+        Width="494.363"
         MinHeight="289"
         MinWidth="363"
-        xmlns:lvc="clr-namespace:LiveCharts;assembly=LiveCharts"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         Title="Ping Tracker"
         DataContext="MainViewModel" Closing="Window_Closing">
 
@@ -22,29 +30,29 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="19" Margin="10,27,0,0" TextWrapping="Wrap" Text="{Binding URL}" VerticalAlignment="Top" Width="272"/>
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="207,50,0,0" Width="35" Command="{Binding StartCommand}" Height="19" VerticalAlignment="Top" Click="btnStart_Click"/>
-        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="247,50,0,0" IsEnabled="False" VerticalAlignment="Top" Width="35" Command="{Binding StopCommand}" Height="19"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="66,50,0,0" TextWrapping="Wrap" Text="{Binding Status}" VerticalAlignment="Top" Height="19" FontSize="12" Width="40" />
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="186,50,0,0" TextWrapping="Wrap" Text="{Binding Average}" VerticalAlignment="Top" Height="19" FontSize="12" Width="16" />
-        <TextBlock x:Name="textBloc" HorizontalAlignment="Left" Margin="111,50,0,0" TextWrapping="Wrap" Text="Average Ping" VerticalAlignment="Top" Height="19" Width="70" FontSize="12" />
-        <lvc:LineChart LegendLocation="None" Hoverable="False" Series="{Binding dataPoints.Series}" Margin="10,78,71,27" >
-            <lvc:LineChart.AxisY>
+        <TextBox x:Name="textBox" Height="31" Margin="11,55,72,0" TextWrapping="Wrap" Text="{Binding URL}" VerticalAlignment="Top"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Right" Margin="0,91,143,0" Width="66" Command="{Binding StartCommand}" Height="27" VerticalAlignment="Top" Click="btnStart_Click"/>
+        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Right" Margin="0,91,72,0" IsEnabled="False" VerticalAlignment="Top" Width="66" Command="{Binding StopCommand}" Height="27" RenderTransformOrigin="-1.772,3.218"/>
+        <Label x:Name="textBlock" HorizontalAlignment="Left" Margin="76,91,0,0" Content="{Binding Status}" VerticalAlignment="Top" Height="27" FontSize="12" Width="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <Label x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="227,92,0,0" Content="{Binding Average}" VerticalAlignment="Top" Height="27" FontSize="12" Width="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <Label x:Name="textBloc" HorizontalAlignment="Left" Margin="141,92,0,0" Content="Average Ping" VerticalAlignment="Top" Height="27" Width="86" FontSize="12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" />
+        <lvc:CartesianChart LegendLocation="None" Hoverable="False" Series="{Binding dataPoints.Series}" Margin="10,124,71,45" >
+            <lvc:CartesianChart.AxisY>
                 <lvc:Axis Title="Response Times" />
-            </lvc:LineChart.AxisY>
-            <lvc:LineChart.AxisX>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Pings" Labels="{}" />
-            </lvc:LineChart.AxisX>
-        </lvc:LineChart>
-        <ListView x:Name="dataGrid" ItemsSource="{Binding Path=PingQueue.Queue}" Margin="0,27,10,27" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="51"/>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Last Ping" VerticalAlignment="Top" Height="19" Width="51" FontSize="12" />
-        <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
-            <MenuItem Header="File" Width="29" FontSize="12">
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <ListView x:Name="dataGrid" ItemsSource="{Binding Path=PingQueue.Queue}" Margin="0,55,10,45" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="51" BorderBrush="#FF41B1E1" BorderThickness="1"/>
+        <Label x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="11,91,0,0" Content="Last Ping" VerticalAlignment="Top" Height="27" Width="65" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
+        <Menu x:Name="menu" Height="50" VerticalAlignment="Top">
+            <MenuItem Header="File">
                 <MenuItem Header="Options" FontSize="12" Click="MenuItem_Click"/>
                 <MenuItem Header="Exit" FontSize="12" Click="MenuItem_Click_1"/>
             </MenuItem>
         </Menu>
-        <StatusBar x:Name="SBmain" Background="#FF41B1E1" Height="22" VerticalAlignment="Bottom">
+        <StatusBar x:Name="SBmain" Background="#FF41B1E1" Height="40" VerticalAlignment="Bottom">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -59,13 +67,11 @@
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
             <StatusBarItem Margin="0,0,-52,0">
-                <Border BorderBrush="#FF0B232F" Height="18" Width="261">
-                    <TextBlock x:Name="txtIP" TextWrapping="Wrap" Margin="0,-1,0,0" Height="19" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="261" Text="{Binding ExtIP}" />
-                </Border>
+                <Label x:Name="txtIP" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="261" Content="{Binding ExtIP}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="4">
                 <StackPanel Orientation="Horizontal" Width="77">
-                    <TextBlock x:Name="txtCount" TextWrapping="Wrap" Margin="0,0,0,-1" FontSize="12" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="76" Text="{Binding PingsSent}" />
+                    <Label x:Name="txtCount" Margin="0,0,0,-1" FontSize="12" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="76" Content="{Binding PingsSent}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" />
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>
