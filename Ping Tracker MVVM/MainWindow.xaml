@@ -44,7 +44,7 @@
                 <lvc:Axis Title="Pings" Labels="{}" />
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
-        <ListView x:Name="dataGrid" ItemsSource="{Binding Path=PingQueue.Queue}" Margin="0,55,10,45" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="51" BorderBrush="#FF41B1E1" BorderThickness="1"/>
+        <ListView x:Name="dataGrid" ItemsSource="{Binding Path=PingQueue.Queue}" Margin="0,50,10,50" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="51" BorderBrush="#FF41B1E1" BorderThickness="1"/>
         <Label x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="11,91,0,0" Content="Last Ping" VerticalAlignment="Top" Height="27" Width="65" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" />
         <Menu x:Name="menu" Height="50" VerticalAlignment="Top">
             <MenuItem Header="File">
@@ -61,7 +61,7 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="85" />
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>
@@ -71,7 +71,7 @@
             </StatusBarItem>
             <StatusBarItem Grid.Column="4">
                 <StackPanel Orientation="Horizontal" Width="77">
-                    <Label x:Name="txtCount" Margin="0,0,0,-1" FontSize="12" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="76" Content="{Binding PingsSent}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" />
+                    <Label x:Name="txtCount" Margin="0,0,0,-1" FontSize="12" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" Content="{Binding PingsSent}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>

@@ -68,7 +68,7 @@ namespace Ping_Tracker.ViewModel
             }
             set
             {
-                _average = value;
+                _average = Math.Round(Convert.ToDouble(value), 2).ToString();
                 RaisePropertyChanged("Average");
             }
         }
