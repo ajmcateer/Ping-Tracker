@@ -13,6 +13,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using Ping_Tracker.Model;
+using Ping_Tracker_MVVM.Infrastructure;
+using System;
 
 namespace Ping_Tracker.ViewModel
 {
@@ -53,6 +55,14 @@ namespace Ping_Tracker.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
+        }
+
+        private static void SetupNavigation()
+        {
+            var navigationService = new FrameNavigationService();
+            navigationService.Configure("OptionsView", new Uri("../Views/Options.xaml", UriKind.Relative));
+
+            SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
 
         /// <summary>

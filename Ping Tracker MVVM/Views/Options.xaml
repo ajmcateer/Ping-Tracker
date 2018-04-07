@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Ping_Tracker_MVVM.Views.Options"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ping_Tracker_MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ComboBox x:Name="cbPingInterval" Margin="111,10,10,0" Text="{Binding Path=PingInterval, Mode=TwoWay}" SelectedItem="{Binding Path=PingInterval, Mode=TwoWay}" VerticalAlignment="Top" Height="30">
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>30</ComboBoxItem>
+            <ComboBoxItem>60</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="cbResultsToSave" Margin="111,45,10,0" Text="{Binding Path=PingsToSave, Mode=TwoWay}" SelectedItem="{Binding Path=PingsToSave, Mode=TwoWay}" VerticalAlignment="Top" Height="30">
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>100</ComboBoxItem>
+            <ComboBoxItem>500</ComboBoxItem>
+            <ComboBoxItem>1000</ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="label" Content="Ping Interval" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="12" Width="96" Height="30" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Results to Save" HorizontalAlignment="Left" Margin="10,45,0,0" FontSize="12" Width="96" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="button_Copy" Content="Save" Margin="10,116,672,291" Height="Auto"/>
+        <Label x:Name="label1" Content="Settings will be applied next time it is run" Margin="10,80,0,0" VerticalAlignment="Top" Height="31" FontSize="13.5" HorizontalAlignment="Left" Width="265"/>
+
+    </Grid>
+</UserControl>

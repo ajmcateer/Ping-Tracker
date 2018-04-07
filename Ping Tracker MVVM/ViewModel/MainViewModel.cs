@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Net.Http;
 using LiveCharts.Wpf;
+using Ping_Tracker_MVVM.Model;
 
 namespace Ping_Tracker.ViewModel
 {
@@ -39,6 +40,8 @@ namespace Ping_Tracker.ViewModel
         private int _pingInterval;
         private int _pingsToSave;
         private string _pingsSent;
+
+        private List<PageModel> _pageModels;
 
         private SynchronizationContext uiContext = SynchronizationContext.Current;
 
@@ -169,6 +172,19 @@ namespace Ping_Tracker.ViewModel
             }
         }
 
+        public List<PageModel> PageModel
+        {
+            get
+            {
+                return _pageModels;
+            }
+            set
+            {
+                _pageModels = value;
+                RaisePropertyChanged("PageModel");
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -201,6 +217,9 @@ namespace Ping_Tracker.ViewModel
             {
                 ExtIP = await GetExtIP();
             });
+            PageModel = new List<PageModel>();
+            PageModel.Add(new PageModel("Ping", "..\\Views\\PingUI.xaml"));
+            PageModel.Add(new PageModel("Options", "..\\Views\\Options.xaml"));
         }
 
         /// <summary>

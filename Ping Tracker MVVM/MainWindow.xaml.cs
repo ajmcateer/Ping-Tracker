@@ -24,8 +24,6 @@ namespace Ping_Tracker
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
 
-            base.DataContext = _viewModel;
-
             Messenger.Default.Register<string>(this, "Toast", ShowToast);
         }
 
@@ -72,29 +70,6 @@ namespace Ping_Tracker
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Options opt = new Options(_viewModel);
-            opt.ShowDialog();
-        }
-
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-            btnStop.IsEnabled = true;
-            btnStart.IsEnabled = false;
-        }
-
-        private void btnStop_Click(object sender, RoutedEventArgs e)
-        {
-            btnStart.IsEnabled = true;
-            btnStop.IsEnabled = false;
-        }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
