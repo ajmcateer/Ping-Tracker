@@ -22,8 +22,8 @@
         </ComboBox>
         <Label x:Name="label" Content="Ping Interval" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="12" Width="96" Height="30" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Results to Save" HorizontalAlignment="Left" Margin="10,45,0,0" FontSize="12" Width="96" Height="30" VerticalAlignment="Top"/>
-        <Button x:Name="button_Copy" Content="Save" Margin="10,116,672,291" Height="Auto"/>
-        <Label x:Name="label1" Content="Settings will be applied next time it is run" Margin="10,80,0,0" VerticalAlignment="Top" Height="31" FontSize="13.5" HorizontalAlignment="Left" Width="265"/>
+        <Button x:Name="button_Copy" Content="Save" Margin="10,116,10,0" Height="43" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Restart any running pings and the new settings will be used" Margin="10,80,10,0" VerticalAlignment="Top" Height="31" FontSize="13.5"/>
 
     </Grid>
 </UserControl>

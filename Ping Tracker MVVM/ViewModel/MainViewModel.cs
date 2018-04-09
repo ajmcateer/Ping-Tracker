@@ -36,6 +36,7 @@ namespace Ping_Tracker.ViewModel
         private string _extIP;
         private string _status;
         private string _average;
+        private string _currentPage;
 
         private int _pingInterval;
         private int _pingsToSave;
@@ -63,6 +64,19 @@ namespace Ping_Tracker.ViewModel
             }
         }
 
+        public string CurrentPage
+        {
+            get
+            {
+                return _currentPage;
+            }
+            set
+            {
+                _currentPage = value;
+                RaisePropertyChanged("Average");
+            }
+        }
+
         public string Average
         {
             get
@@ -71,7 +85,7 @@ namespace Ping_Tracker.ViewModel
             }
             set
             {
-                _average = Math.Round(Convert.ToDouble(value), 2).ToString();
+                _average = Math.Round(Convert.ToDouble(value), 0).ToString();
                 RaisePropertyChanged("Average");
             }
         }
@@ -220,6 +234,7 @@ namespace Ping_Tracker.ViewModel
             PageModel = new List<PageModel>();
             PageModel.Add(new PageModel("Ping", "..\\Views\\PingUI.xaml"));
             PageModel.Add(new PageModel("Options", "..\\Views\\Options.xaml"));
+            CurrentPage = PageModel[0].Content;
         }
 
         /// <summary>

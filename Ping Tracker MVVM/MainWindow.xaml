@@ -45,10 +45,11 @@
                                     IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                     <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                         
                              ItemsSource="{Binding PageModel}"
-                             DataContext="{Binding Main, Source={StaticResource Locator}}">
+                             DataContext="{Binding Main, Source={StaticResource Locator}}"
+                             PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp">
                         <ListBox.ItemTemplate>
                             <DataTemplate >
-                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
+                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -73,7 +74,7 @@
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Ping Tracker</TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>
-                <Frame Source="\Views\PingUI.xaml" NavigationUIVisibility="Hidden" Name="MainFrame"/>
+                <Frame Source="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" NavigationUIVisibility="Hidden" Name="MainFrame"/>
                 <!--<materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar" Grid.Row="1" />-->
 
             </DockPanel>

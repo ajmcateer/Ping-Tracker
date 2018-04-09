@@ -3,6 +3,9 @@ using Ping_Tracker.ViewModel;
 using System;
 using GalaSoft.MvvmLight.Messaging;
 using PeanutButter.Toast;
+using System.Windows.Input;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace Ping_Tracker
 {
@@ -67,6 +70,19 @@ namespace Ping_Tracker
             {
                 MessageBox.Show(String.Concat("An error occured trying to show an alert, The alert was: ", message), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //until we had a StaysOpen glag to Drawer, this will help with scroll bars
+            var dependencyObject = Mouse.Captured as DependencyObject;
+            while (dependencyObject != null)
+            {
+                if (dependencyObject is ScrollBar) return;
+                dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
+            }
+
+            MenuToggleButton.IsChecked = false;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
