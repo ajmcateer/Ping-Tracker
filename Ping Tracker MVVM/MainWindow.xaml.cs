@@ -18,7 +18,7 @@ namespace Ping_Tracker
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
         /// 
-        MainViewModel _viewModel = new MainViewModel();
+        //MainViewModel _viewModel = new MainViewModel();
 
         DateTime lastUsedTime = new DateTime();
 

@@ -30,13 +30,10 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
-        <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
-        </materialDesign:DialogHost>
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}"
-	    HorizontalAlignment="Center"
-	    VerticalAlignment="Center"
+	    VerticalAlignment="Bottom"
 	    BorderBrush="{DynamicResource MaterialDesignDivider}"
-	    BorderThickness="2" Height="375" Width="486">
+	    BorderThickness="2" Height="375">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <DockPanel MinWidth="150">
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
@@ -55,7 +52,7 @@
                     </ListBox>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-            <DockPanel LastChildFill="True">
+            <DockPanel LastChildFill="True" Margin="0,0,0,-4">
                 <materialDesign:ColorZone DataContext="{Binding Main, Source={StaticResource Locator}}" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                                 Mode="PrimaryMid" DockPanel.Dock="Top">
                     <DockPanel>
@@ -74,9 +71,10 @@
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Ping Tracker</TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>
-                <Frame Source="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" NavigationUIVisibility="Hidden" Name="MainFrame"/>
+                <Frame Source="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" NavigationUIVisibility="Hidden" Name="MainFrame" Width="481"/>
                 <!--<materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar" Grid.Row="1" />-->
-
+                <materialDesign:Snackbar MessageQueue="{Binding SnackBarTest}" x:Name="MainSnackbar" DockPanel.Dock="Bottom"
+                        Margin="-471,0,10,0" />
             </DockPanel>
         </materialDesign:DrawerHost>
     </Grid>

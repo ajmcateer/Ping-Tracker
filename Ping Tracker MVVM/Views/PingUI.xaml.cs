@@ -23,12 +23,12 @@ namespace Ping_Tracker_MVVM.Views
     /// </summary>
     public partial class PingUI : UserControl
     {
-        MainViewModel _viewModel = new MainViewModel();
+        //MainViewModel _viewModel = new MainViewModel();
 
         public PingUI()
         {
             InitializeComponent();
-            base.DataContext = _viewModel;
+            //base.DataContext = _viewModel;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)

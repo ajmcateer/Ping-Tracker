@@ -9,11 +9,11 @@
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
+using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
+using MaterialDesignThemes.Wpf;
 using Ping_Tracker.Model;
-using Ping_Tracker_MVVM.Infrastructure;
 using System;
 
 namespace Ping_Tracker.ViewModel
@@ -27,6 +27,7 @@ namespace Ping_Tracker.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
+        [PreferredConstructorAttribute]
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -40,7 +41,11 @@ namespace Ping_Tracker.ViewModel
                 
             }
 
+            SimpleIoc.Default.Register<ISnackbarMessageQueue>(() => {
+                return new SnackbarMessageQueue();
+            });
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<PingViewModel>();
         }
 
         /// <summary>
@@ -57,12 +62,12 @@ namespace Ping_Tracker.ViewModel
             }
         }
 
-        private static void SetupNavigation()
+        public PingViewModel Ping
         {
-            var navigationService = new FrameNavigationService();
-            navigationService.Configure("OptionsView", new Uri("../Views/Options.xaml", UriKind.Relative));
-
-            SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
+            get
+            {
+                return ServiceLocator.Current.GetInstance<PingViewModel>();
+            }
         }
 
         /// <summary>
