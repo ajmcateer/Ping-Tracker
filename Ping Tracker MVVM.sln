@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ping Tracker MVVM", "Ping Tracker MVVM\Ping Tracker MVVM.csproj", "{1D130207-27A4-433F-8574-C6AA88455F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkTools", "..\NetworkTools\NetworkTools\NetworkTools.csproj", "{71FA1B53-B0C0-4802-8D63-C441F1EF7FD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{1D130207-27A4-433F-8574-C6AA88455F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D130207-27A4-433F-8574-C6AA88455F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D130207-27A4-433F-8574-C6AA88455F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FA1B53-B0C0-4802-8D63-C441F1EF7FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FA1B53-B0C0-4802-8D63-C441F1EF7FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FA1B53-B0C0-4802-8D63-C441F1EF7FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FA1B53-B0C0-4802-8D63-C441F1EF7FD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBEA2FC8-953D-4D05-A719-11CF3F1F7C09}
 	EndGlobalSection
 EndGlobal
